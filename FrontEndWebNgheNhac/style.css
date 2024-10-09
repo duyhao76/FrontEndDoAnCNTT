@@ -55,6 +55,7 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
+    
 }
 
 header {
@@ -74,8 +75,26 @@ header .menu_side, .song_side {
     background-color: #111727;
     box-shadow: 5px 0px 2px #090f1f;
     color: #fff;
+    overflow: auto;
+}
+header .menu_side::-webkit-scrollbar, .song_side::-webkit-scrollbar {
+    width: 10px; /* Độ rộng của thanh cuộn */
 }
 
+header .menu_side::-webkit-scrollbar-track, .song_side::-webkit-scrollbar-track {
+    background: #000; /* Màu nền cho track */
+    border-radius: 5px;
+}
+
+header .menu_side::-webkit-scrollbar-thumb, .song_side::-webkit-scrollbar-thumb {
+    background-color: #888; /* Màu của thanh cuộn */
+    border-radius: 5px;
+    border: 2px solid #555; /* Viền cho thanh cuộn */
+}
+
+header .menu_side::-webkit-scrollbar-thumb:hover, .song_side::-webkit-scrollbar-thumb:hover {
+    background: #555; /* Màu khi rê chuột vào thanh cuộn */
+}
 header .title {
     display: flex;
     align-items: center;
@@ -449,7 +468,10 @@ header .song_side::before {
     position: absolute;
     width: 100%;
     height: 300px;
-    background: url('accests/img/Banner2.jpg') no-repeat center center;
+    top: 10%;
+    background: 
+        linear-gradient(to left, rgba(11, 19, 32, 0) 10%, rgba(11, 19, 32, 1) 100%), /* Mờ dần rộng hơn */
+        url('accests/img/Banner2.jpg') no-repeat center center;
     background-size: cover;
     z-index: -1;
 }
@@ -623,13 +645,14 @@ header .song_side .popular_song {
     height: auto;
     /* border: 1px solid #fff; */
     margin: auto;
-    margin-top: 32px;
+    margin-top: 120px;
 }
 
 header .song_side .popular_song .h4{
     display: flex;
     align-items: center;
     justify-content: space-between;
+    margin-top: 6%;
 }
 
 header .song_side .popular_song .h4 .bi{
@@ -648,8 +671,8 @@ header .song_side .popular_song .pop_song {
     /* height: 150px; */
     margin-top: 15px;
     display: flex;
-    overflow: auto;
     scroll-behavior: smooth;
+    
 }
 
 header .song_side .popular_song .pop_song::-webkit-scrollbar {
