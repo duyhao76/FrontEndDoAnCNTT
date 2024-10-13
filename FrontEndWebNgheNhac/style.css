@@ -64,7 +64,7 @@ header {
     /* border: 1px solid #fff; */
     display: flex;
     flex-wrap: wrap;
-    overflow: hidden;
+    /* overflow: hidden; */
 }
 
 header .menu_side, .song_side {
@@ -98,11 +98,15 @@ header .menu_side::-webkit-scrollbar-thumb:hover, .song_side::-webkit-scrollbar-
 header .title {
     display: flex;
     align-items: center;
+    font-size: 36px;
+    color: #fff;
+    font-weight: 500;
+    margin-left: 60px;
 }
 
 header .logo {
     margin-right: 8px; /* Khoảng cách giữa icon và chữ */
-    font-size: 32px; /* Cỡ của icon */
+    font-size: 40px; /* Cỡ của icon */
     margin-top: 2px;
 }
 
@@ -199,6 +203,44 @@ header .menu_side .menu_song li{
     transition: .3s linear;
 }
 
+header .menu_song .library {
+    margin: auto;
+    width: 95%;
+    background: rgb(105, 105, 170,.1);
+    border-radius: 12px;
+    display: block;
+}
+
+header .menu_song .library h4,
+header .menu_song .library p{
+    margin: 5px 10px;
+}
+
+header .menu_song .library h4 {
+    font-size: 18px;
+    font-weight: 500;
+}
+
+header .menu_song .library p {
+    font-size: 16px;
+    font-weight: 400;
+}
+
+header .menu_song .library button {
+    margin: 10px 10px 15px;
+    padding: 8px 20px;
+    background-color: #f5f5f5;
+    border-radius: 40px;
+    border: none;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+}
+
+header .menu_song .library button:hover {
+    transform: scale(1.05);
+}
+
+
 header .menu_side .menu_song li i.playlistPlay {
     position: absolute;
     right: 20px
@@ -242,6 +284,12 @@ header .master_play {
     display: flex;
     align-items: center;
     padding: 0px 20px;
+    position: fixed;
+    bottom: 0;
+    /* left: 0; */
+    width: 85%;
+    z-index: 1000;
+    box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.5);
 }
 
 header .master_play .wave {
@@ -252,6 +300,10 @@ header .master_play .wave {
     display: flex;
     align-items: flex-end;
     margin-right: 10px;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.5);
 }
 
 header .master_play .wave .wave1 {
@@ -302,8 +354,10 @@ header .master_play .active2 .wave1:nth-child(3) {
 }
 
 header .master_play img {
+    /* width: 35px;
+    height: 35px; */
     width: 35px;
-    height: 35px;
+    border-radius: 4px;
 }
 
 header .master_play h5 {
@@ -318,6 +372,10 @@ header .master_play h5 {
 header .master_play .subtitle {
     font-size: 11px;
     color: #4c5262;
+}
+
+.bar input[type="range"], .vol input[type="range"] {
+    width: 100px;
 }
 
 header .master_play .icon {
@@ -468,7 +526,6 @@ header .song_side::before {
     position: absolute;
     width: 100%;
     height: 300px;
-    top: 10%;
     background: 
         linear-gradient(to left, rgba(11, 19, 32, 0) 10%, rgba(11, 19, 32, 1) 100%), /* Mờ dần rộng hơn */
         url('accests/img/Banner2.jpg') no-repeat center center;
@@ -476,21 +533,26 @@ header .song_side::before {
     z-index: -1;
 }
 
-header .song_side nav {
-    width: 90%;
+header nav {
+    width: 100%;
     height: 10%;
     margin: auto;
     /* border: 1px solid #fff; */
     display: flex;
     align-items: center;
     justify-content: space-between;
+    background-color: #111727;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
 }
 
-header .song_side nav ul {
+header nav ul {
     display: flex;
 }
 
-header .song_side nav ul li{
+header nav ul li{
     position: relative;
     list-style-type: none;
     font-size: 16px;
@@ -500,15 +562,15 @@ header .song_side nav ul li{
     transition: .3s linear;
 }
 
-header .song_side nav ul li:hover{
+header nav ul li:hover{
     color: #fff;
 }
 
-header .song_side nav ul li:nth-child(1){
+header nav ul li:nth-child(1){
     color: #fff;
 }
 
-header .song_side nav ul li span {
+header nav ul li span {
     position: absolute;
     width: 100%;
     height: 2.5px;
@@ -518,15 +580,18 @@ header .song_side nav ul li span {
     border-radius: 20px;
 }
 
-header .song_side nav .search {
+header nav .search {
     position: relative;
     width: 40%;
     padding: 1px 10px;
     border-radius: 20px;
     color: gray;
+    background: #fff;
+    height: 40%;
+    font-size: 20px;
 }
 
-header .song_side nav .search::before {
+header nav .search::before {
     content: '';
     position: absolute;
     width: 100%;
@@ -537,12 +602,12 @@ header .song_side nav .search::before {
     z-index: -1;
 }
 
-header .song_side nav .search .bi {
+header nav .search .bi {
     font-size: 14px;
     padding: 3px 0px 0px 10px;
 }
 
-header .song_side nav .search input {
+header nav .search input {
     background: none;
     outline: none;
     border: none;
@@ -551,15 +616,16 @@ header .song_side nav .search input {
     font-size: 14px;
 }
 
-header .song_side nav .user {
+header nav .user {
     position: relative;
     width: 30px;
     height: 30px;
     border-radius: 50%;
     cursor: pointer;
+    margin-right: 60px;
 }
 
-header .song_side nav .user img {
+header nav .user img {
     position: absolute;
     width: 30px;
     height: 30px;

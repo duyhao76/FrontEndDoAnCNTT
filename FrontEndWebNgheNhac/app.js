@@ -320,3 +320,30 @@ right_scroll_artist.addEventListener('click', () => {
     item.scrollLeft += 330;
 })
 
+// Lấy tất cả các phần tử có class 'menu_select'
+document.querySelectorAll('.menu_select').forEach((element) => {
+    // Thêm sự kiện click cho từng phần tử
+    element.addEventListener('click', (e) => {
+        // Loại bỏ class 'active' khỏi tất cả các phần tử
+        document.querySelectorAll('.menu_select').forEach(item => item.classList.remove('active'));
+        
+        // Thêm class 'active' cho phần tử được click
+        e.currentTarget.classList.add('active');
+
+        // Kiểm tra nếu phần tử được click là Playlist hoặc Recommended
+        if (e.currentTarget.textContent.includes('Playlist')) {
+            // Khi nhấn vào Playlist
+            document.querySelector('header .menu_song .library').style.display = 'block';
+            document.querySelectorAll('header .menu_side .menu_song li').forEach(li => {
+                li.style.display = 'none';
+            });
+        }
+        else if (e.currentTarget.textContent.includes('Recommended')) {
+            // Khi nhấn vào Recommended
+            document.querySelectorAll('header .menu_side .menu_song li').forEach(li => {
+                li.style.display = 'flex';
+            });
+            document.querySelector('header .menu_song .library').style.display = 'none';
+        }
+    });
+});
