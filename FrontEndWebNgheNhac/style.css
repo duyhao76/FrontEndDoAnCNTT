@@ -196,7 +196,7 @@ header .menu_side .menu_song li{
     position: relative;
     list-style-type: none;
     padding: 5px 0px 5px 20px;
-    display: flex;
+    display: none;
     align-items: center;
     margin-bottom: 10px;
     cursor: pointer;
